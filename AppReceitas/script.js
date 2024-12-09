@@ -1,5 +1,6 @@
 const recipeList = document.querySelector('.recipe-list')
 const form = document.querySelector('.search-form')
+const recipeDetails = document.querySelector('.recipe-details')
 
 form.addEventListener('submit', function (event) {
     event.preventDefault()
@@ -44,4 +45,16 @@ async function getRecipesDetails(id) {
             break;
         }
     }
+
+    recipeDetails.innerHTML = `
+        <h2>${recipe.strMeal}</h2>
+        <img src="${recipe.strMealThumb}" alt=${recipe.strMeal} class="recipe-img">
+        <h3>Categoria: ${recipe.strCategory}</h3>
+        <h3>Origem: ${recipe.strArea}</h3>
+        <h3>Ingredintes:</h3>
+        <ul>${ingredients}</ul>
+        <p>${recipe.strInstructions}</p>
+        <p>${recipe.strTags}</p>
+        <p>Vídeo: <a href="${recipe.strYoutube}" target="_blank">Assista no Youtube</a></p>
+    `
 }
