@@ -54,7 +54,7 @@ async function getRecipesDetails(id) {
         <h3>Ingredintes:</h3>
         <ul>${ingredients}</ul>
         <p>${recipe.strInstructions}</p>
-        <p>${recipe.strTags}</p>
+        <p>Tags: ${recipe.strTags}</p>
         <p>Vídeo: <a href="${recipe.strYoutube}" target="_blank">Assista no Youtube</a></p>
     `
 }
