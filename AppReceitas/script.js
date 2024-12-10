@@ -10,11 +10,18 @@ form.addEventListener('submit', function (event) {
 })
 
 async function searchRecipes(ingredient) {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
-    const data = await response.json()
-    console.log(data)
+    recipeList.innerHTML = `<p>Carregando receitas...</p>`
+    try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+        const data = await response.json()
+        console.log(data)
 
-    showRecipes(data.meals)
+        showRecipes(data.meals)
+    } catch (err) {
+        recipeList.innerHTML = `<p>Nenhuma receita encontrada</p>`
+
+    }
+
 }
 
 function showRecipes(recipes) {
@@ -40,7 +47,7 @@ async function getRecipesDetails(id) {
     for (let i = 1; i <= 20; i++) {
         if (recipe[`strIngredient${i}`]) {
             ingredients += `<li>${recipe[`strIngredient${i}`]} - ${recipe[`strMeasure${i}`]}</li>`
-            
+
         } else {
             break;
         }
