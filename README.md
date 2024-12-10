@@ -1,0 +1,1 @@
+Projeto AppReceitas: Realizado a construção do projeto seguindo os estudos do canal do youtube 'DevClub'. Um aprendizado muito importante aonde é utilizado conceitos de css, javaScript e Html e o resultado surpreendente.
